@@ -9,7 +9,7 @@ const App = () => {
   const [isSigned, setIsSigned] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [bitSize, setBitSize] = useState(5); 
+  const [bitSize, setBitSize] = useState(4); 
   const [timeLeft, setTimeLeft] = useState(15); 
   const [timeLimit, setTimeLimit] = useState(15); 
 
