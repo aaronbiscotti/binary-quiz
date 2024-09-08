@@ -57,12 +57,29 @@ const App = () => {
         color: "text-red-500",
       });
       if (score > maxScore) {
-        setMaxScore(score);  // Update the high score if the current score is greater
+        setMaxScore(score);  
       }
-      setScore(0);  // Reset the current score after failure
+      setScore(0);  
     }
     setSubmitted(true);
   };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      if (!submitted) {
+        checkAnswer();  
+      } else {
+        generateBinaryNumber();  
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [submitted]);
 
   useEffect(() => {
     if (timeLeft > 0 && !submitted) {
