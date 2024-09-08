@@ -25,7 +25,6 @@ const App = () => {
     setMessage("");
     setSubmitted(false);
     setTimeLeft(timeLimit);
-    setMaxScore(maxScore + 1);
   };
 
   const binaryToDecimal = (binary, isSigned) => {
@@ -57,6 +56,10 @@ const App = () => {
         text: `Incorrect! The correct answer was ${answer}`,
         color: "text-red-500",
       });
+      if (score > maxScore) {
+        setMaxScore(score);  // Update the high score if the current score is greater
+      }
+      setScore(0);  // Reset the current score after failure
     }
     setSubmitted(true);
   };
@@ -141,9 +144,8 @@ const App = () => {
         </>
       )}
 
-
       <p className="mt-4 text-lg font-semibold">Score: {score}</p>
-      <p className="text-lg font-semibold">Max Score: {maxScore}</p>
+      <p className="text-lg font-semibold">High Score: {maxScore}</p>
 
       <div className="mt-6 p-4 border rounded bg-white">
         <h2 className="text-xl font-semibold mb-2">Binary to Decimal Rules</h2>
