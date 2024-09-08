@@ -141,6 +141,7 @@ const App = () => {
         </>
       )}
 
+
       <p className="mt-4 text-lg font-semibold">Score: {score}</p>
       <p className="text-lg font-semibold">Max Score: {maxScore}</p>
 
