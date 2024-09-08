@@ -67,19 +67,12 @@ const App = () => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       if (!submitted) {
-        checkAnswer();  
+        checkAnswer();  // Submit the answer if not yet submitted
       } else {
-        generateBinaryNumber();  
+        generateBinaryNumber();  // Move to the next question if already submitted
       }
     }
   };
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [submitted]);
 
   useEffect(() => {
     if (timeLeft > 0 && !submitted) {
@@ -140,6 +133,7 @@ const App = () => {
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
             placeholder="Enter decimal value"
+            onKeyDown={handleKeyDown} 
             className="border p-2 mb-4 text-center w-48 rounded border-black focus:outline-none"
           />
           <button
